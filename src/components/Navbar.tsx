@@ -14,22 +14,12 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80;
+      const offset = 120;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -42,13 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
-      }`}
-    >
+    <nav className="fixed top-10 left-0 right-0 z-40 bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -69,19 +53,11 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`font-medium transition-colors hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-white"
-                }`}
+                className="font-medium text-foreground transition-colors hover:text-primary"
               >
                 {item.name}
               </button>
             ))}
-            <Button
-              className="bg-primary hover:bg-primary/90 shadow-accent-glow"
-              onClick={() => window.open("https://wa.me/5511912075674", "_blank")}
-            >
-              Fazer Pedido
-            </Button>
           </div>
 
           {/* Mobile Menu */}
@@ -91,7 +67,7 @@ const Navbar = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={isScrolled ? "text-foreground" : "text-white"}
+                  className="text-foreground"
                 >
                   {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
@@ -112,15 +88,6 @@ const Navbar = () => {
                       {item.name}
                     </button>
                   ))}
-                  <Button
-                    className="w-full bg-primary hover:bg-primary/90"
-                    onClick={() => {
-                      window.open("https://wa.me/5511912075674", "_blank");
-                      setIsOpen(false);
-                    }}
-                  >
-                    Fazer Pedido
-                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
