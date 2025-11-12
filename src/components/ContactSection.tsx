@@ -55,7 +55,7 @@ const ContactSection = () => {
               variant="outline"
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto text-sm md:text-base"
-              onClick={() => window.open("https://instagram.com/sabordealho", "_blank")}
+              onClick={() => window.open("https://www.instagram.com/sabo_rdealho/", "_blank")}
             >
               <Instagram className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Instagram
@@ -65,7 +65,7 @@ const ContactSection = () => {
               variant="outline"
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto text-sm md:text-base"
-              onClick={() => window.open("https://www.facebook.com/share/1YeqKp3nfZ/", "_blank")}
+              onClick={() => window.open("https://www.facebook.com/share/1H5bWHZqJX/", "_blank")}
             >
               <Facebook className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Facebook
