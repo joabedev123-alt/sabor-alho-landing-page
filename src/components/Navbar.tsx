@@ -15,6 +15,30 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        // Sempre mostrar no topo
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Rolando para baixo - esconder
+        setIsVisible(false);
+      } else {
+        // Rolando para cima - mostrar
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -32,13 +56,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-10 left-0 right-0 z-40 bg-white shadow-md">
+    <nav className={`fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-transform duration-300 ${
+      isVisible ? "translate-y-0" : "-translate-y-full"
+    }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-center h-20 relative">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("#inicio")}
-            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            className="absolute left-0 flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
             <img
               src={logo}
@@ -47,8 +73,8 @@ const Navbar = () => {
             />
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Centralizado */}
+          <div className="hidden md:flex items-center justify-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -61,7 +87,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu */}
-          <div className="md:hidden">
+          <div className="md:hidden absolute right-0">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button

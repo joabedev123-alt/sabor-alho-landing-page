@@ -7,7 +7,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -17,24 +17,24 @@ const HeroSection = () => {
         }}
       />
       
-      <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-20 text-center">
+        <div className="max-w-4xl mx-auto space-y-4 md:space-y-8 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white drop-shadow-lg px-2">
             Sabor de Alho
           </h1>
           
-          <p className="text-3xl md:text-4xl font-semibold text-secondary drop-shadow-md">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary drop-shadow-md px-2">
             O tempero certo para bons resultados!
           </p>
           
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto px-2">
             Alhos nacionais e importados com alto padrão de qualidade, direto do produtor para sua mesa ou negócio.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 md:pt-8 px-4">
             <Button 
               size="lg"
-              className="text-lg px-8 py-6 bg-accent hover:bg-accent/90 shadow-accent-glow"
+              className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 w-full sm:w-auto bg-accent hover:bg-accent/90 shadow-accent-glow"
               onClick={handleWhatsAppClick}
             >
               <svg 

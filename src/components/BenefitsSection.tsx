@@ -36,17 +36,17 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section id="beneficios" className="py-20 bg-natural-gradient">
+    <section id="beneficios" className="py-12 md:py-20 bg-natural-gradient">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-foreground px-2">
             Por Que Escolher a Sabor de Alho?
           </h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg">
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg px-2">
             Qualidade que rende mais com investimento que cabe no seu bolso
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
@@ -54,14 +54,14 @@ const BenefitsSection = () => {
                   key={index} 
                   className="border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
                 >
-                  <CardContent className="p-6 text-center space-y-4">
-                    <div className="inline-flex p-4 rounded-full bg-primary/10">
-                      <Icon className="h-8 w-8 text-primary" />
+                  <CardContent className="p-4 md:p-6 text-center space-y-3 md:space-y-4">
+                    <div className="inline-flex p-3 md:p-4 rounded-full bg-primary/10">
+                      <Icon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground">
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       {benefit.description}
                     </p>
                   </CardContent>
