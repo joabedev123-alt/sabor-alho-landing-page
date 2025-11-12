@@ -36,7 +36,7 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-20 bg-natural-gradient">
+    <section id="beneficios" className="py-20 bg-natural-gradient">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">

@@ -4,7 +4,7 @@ import { MessageCircle, Instagram, Facebook, MapPin, Phone } from "lucide-react"
 
 const ContactSection = () => {
   return (
-    <section className="py-20 bg-natural-gradient">
+    <section id="contato" className="py-20 bg-natural-gradient">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
